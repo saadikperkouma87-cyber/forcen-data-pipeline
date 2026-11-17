@@ -33,9 +33,6 @@ Twitter/X  →  Python  →  Apache Kafka (Docker)  →  Apache Hive  →  Snowf
 | `hive.sql` | Création des tables et requêtes Hive |
 | `[rapport_final].html` | Rapport final du projet |
 
-## Résultats
-
-[Complète avec ce que tu peux affirmer : ce que montre le tableau de bord, le volume de données traité, les difficultés rencontrées. Si tu n'as pas de chiffre sûr, décris simplement ce que le pipeline permet de faire.]
 
 ## Comment l'exécuter
 
