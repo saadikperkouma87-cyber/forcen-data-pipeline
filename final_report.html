@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rapport Final - Twitter Pipeline</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f0f2f5; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; }
+        h1 { color: #1DA1F2; border-bottom: 3px solid #1DA1F2; padding-bottom: 10px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin: 20px 0; }
+        .card { background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; border-left: 4px solid #1DA1F2; }
+        .card .num { font-size: 32px; font-weight: bold; color: #1DA1F2; }
+        .card .label { color: #666; }
+        .section { margin: 30px 0; }
+        .section h2 { color: #1DA1F2; border-bottom: 2px solid #1DA1F2; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th { background: #1DA1F2; color: white; padding: 10px; text-align: left; }
+        td { padding: 10px; border-bottom: 1px solid #ddd; }
+        .footer { text-align: center; color: #666; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; }
+        .tech { display: inline-block; background: #e9ecef; padding: 5px 15px; border-radius: 20px; margin: 5px; }
+        .arch { background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center; }
+        .arch span { display: inline-block; background: #1DA1F2; color: white; padding: 10px 20px; border-radius: 5px; margin: 5px; }
+        .arch .arrow { background: none; color: #1DA1F2; }
+        .badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 12px; }
+        .badge-success { background: #28a745; color: white; }
+        .badge-info { background: #17a2b8; color: white; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🐦 Twitter Real-Time Data Pipeline</h1>
+    <p><strong>Auteur:</strong> Hpmamadou | <strong>Date:</strong> 15/07/2026 | <strong>Version:</strong> 1.0</p>
+
+    <div class="grid">
+        <div class="card"><div class="num">900</div><div class="label">Tweets collectés</div></div>
+        <div class="card" style="border-left-color: #28a745;"><div class="num" style="color: #28a745;">10</div><div class="label">Fichiers CSV</div></div>
+        <div class="card" style="border-left-color: #fd7e14;"><div class="num" style="color: #fd7e14;">8</div><div class="label">Scripts développés</div></div>
+    </div>
+
+    <div class="section">
+        <h2>🏗️ Architecture du Pipeline</h2>
+        <div class="arch">
+            <span>Twitter API</span><span class="arrow">→</span>
+            <span>Kafka Producer</span><span class="arrow">→</span>
+            <span>Kafka Broker</span><span class="arrow">→</span>
+            <span>Kafka Consumer</span><span class="arrow">→</span>
+            <span>CSV Storage</span><span class="arrow">→</span>
+            <span>Hive Analytics</span><span class="arrow">→</span>
+            <span>Snowflake</span><span class="arrow">→</span>
+            <span>Visualisation</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🛠️ Technologies</h2>
+        <div>
+            <span class="tech">🐍 Python 3.10</span>
+            <span class="tech">📨 Apache Kafka</span>
+            <span class="tech">🐝 Apache Hive</span>
+            <span class="tech">❄️ Snowflake</span>
+            <span class="tech">🐳 Docker</span>
+            <span class="tech">📊 Matplotlib</span>
+            <span class="tech">🐼 Pandas</span>
+            <span class="tech">🐦 Tweepy</span>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📝 Scripts Développés</h2>
+        <table>
+            <tr><th>Script</th><th>Description</th></tr>
+            <tr><td>twitter_kafka_producer.py</td><td>Producteur Kafka - Collecte des tweets</td></tr>
+            <tr><td>kafka_to_hive.py</td><td>Consommateur Kafka - Sauvegarde en CSV</td></tr>
+            <tr><td>hive_analytics.sql</td><td>Analyses Hive (hashtags, sentiments)</td></tr>
+            <tr><td>snowflake_upload.py</td><td>Upload des données vers Snowflake</td></tr>
+            <tr><td>twitter_star_schema.sql</td><td>Modélisation en étoile</td></tr>
+            <tr><td>analyze_data.py</td><td>Analyse statistique des données</td></tr>
+            <tr><td>visualize_data.py</td><td>Visualisations Matplotlib</td></tr>
+            <tr><td>final_report.py</td><td>Génération du rapport final</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>⭐ Modélisation en Étoile</h2>
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: center;">
+            <p><strong>Table de Faits : Fait_Tweet</strong></p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+                <span style="background: #e9ecef; padding: 8px 15px; border-radius: 5px;">Dim_Utilisateur</span>
+                <span style="background: #e9ecef; padding: 8px 15px; border-radius: 5px;">Dim_Date</span>
+                <span style="background: #e9ecef; padding: 8px 15px; border-radius: 5px;">Dim_Heure</span>
+                <span style="background: #e9ecef; padding: 8px 15px; border-radius: 5px;">Dim_Hashtag</span>
+                <span style="background: #e9ecef; padding: 8px 15px; border-radius: 5px;">Dim_Langue</span>
+                <span style="background: #e9ecef; padding: 8px 15px; border-radius: 5px;">Dim_Localisation</span>
+                <span style="background: #e9ecef; padding: 8px 15px; border-radius: 5px;">Dim_Groupe</span>
+            </div>
+            <p style="margin-top: 10px; color: #666;">8 tables : 1 table de faits + 7 dimensions</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>✅ Fonctionnalités Implémentées</h2>
+        <ul>
+            <li>✅ Collecte de tweets en temps réel via Twitter API</li>
+            <li>✅ Ingestion et publication sur Kafka</li>
+            <li>✅ Traitement et transformation des données</li>
+            <li>✅ Analyse avec Hive (hashtags, sentiments, tendances)</li>
+            <li>✅ Stockage dans Snowflake</li>
+            <li>✅ Visualisation des données</li>
+            <li>✅ Modélisation en étoile</li>
+            <li>✅ Génération de rapports automatisés</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Conclusion</h2>
+        <div style="background: #e8f4fd; padding: 20px; border-radius: 8px; border-left: 5px solid #1DA1F2;">
+            <p>Ce projet a permis de mettre en place un pipeline complet d'ingestion, de traitement et d'analyse de données Twitter en temps réel.</p>
+            <p><strong>900 tweets</strong> ont été collectés et analysés.</p>
+            <p><strong style="color: #28a745;">✅ Projet abouti avec succès !</strong></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Twitter Pipeline - Projet Big Data</p>
+        <p>Auteur: Hpmamadou | Date: 15/07/2026</p>
+    </div>
+</div>
+</body>
+</html>
